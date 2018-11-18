@@ -3,8 +3,24 @@ import './App.css';
 import Particles from 'react-particles-js';
 import { Button, Segment } from 'semantic-ui-react';
 import { Link ,Switch,BrowserRouter,Route} from 'react-router-dom';
+import Book from './book';
+import Register from './register'
+import firebase from 'firebase'
 
 class App extends Component {
+  componentDidMount()
+  {
+    var config = {
+      apiKey: "AIzaSyCBNbKaWlC2qc40DYqUvXnajpLwwOLlv6M",
+      authDomain: "comwelfare-bfc42.firebaseapp.com",
+      databaseURL: "https://comwelfare-bfc42.firebaseio.com",
+      projectId: "comwelfare-bfc42",
+      storageBucket: "comwelfare-bfc42.appspot.com",
+      messagingSenderId: "1038046730534"
+    };
+    const app=firebase.initializeApp(config);
+  
+  }
   render() {
     return (
       <BrowserRouter>
@@ -13,11 +29,11 @@ class App extends Component {
       <Link to="/map"><Button inverted color='teal'>
         Map
       </Button></Link>
-      <Link to="/register">
+      <Link to="/register" >
       <Button inverted color='teal'>
         Register 
       </Button></Link>
-      <Link to="/feedback">
+      <Link to="/feedback" >
       <Button inverted color='teal'>
         FeedBack
       </Button>
@@ -28,7 +44,7 @@ class App extends Component {
       </Button>
       </Link>
       </Segment>
-        <Particles params={{
+        {/* <Particles params={{
             		particles: {
                   interactivity:{
                     detect_on:"canvas",
@@ -47,13 +63,13 @@ class App extends Component {
                 width: '100%',
                 //backgroundImage: `url(${a})` ,
                 background: "#6778c8",
-              }}/>
+              }}/> */}
                
               <Switch>
-              <Route path='/register' />
+              <Route path='/register' component={Register}/>
               <Route path='/contact'/>
               <Route path='/feedback'/>
-              <Route path='/map'/>
+              <Route path='/map' component={Book}/>
               </Switch>
              
               </div>
