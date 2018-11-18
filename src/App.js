@@ -3,8 +3,23 @@ import './App.css';
 import Particles from 'react-particles-js';
 import { Button, Segment } from 'semantic-ui-react';
 import { Link ,Switch,BrowserRouter,Route} from 'react-router-dom';
+import Register from './register.js'
+import firebase from 'firebase'
+import Feedback from './Feedback.js'
 
 class App extends Component {
+  componentDidMount()
+  {
+    var config = {
+      apiKey: "AIzaSyCBNbKaWlC2qc40DYqUvXnajpLwwOLlv6M",
+      authDomain: "comwelfare-bfc42.firebaseapp.com",
+      databaseURL: "https://comwelfare-bfc42.firebaseio.com",
+      projectId: "comwelfare-bfc42",
+      storageBucket: "comwelfare-bfc42.appspot.com",
+      messagingSenderId: "1038046730534"
+    };
+    const app=firebase.initializeApp(config);
+  }
   render() {
     return (
       <BrowserRouter>
@@ -50,9 +65,9 @@ class App extends Component {
               }}/>
                
               <Switch>
-              <Route path='/register' />
+              <Route path='/register' component={Register}/>
               <Route path='/contact'/>
-              <Route path='/feedback'/>
+              <Route path='/feedback' component={Feedback}/>
               <Route path='/map'/>
               </Switch>
              
