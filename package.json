@@ -4,11 +4,17 @@
   "private": true,
   "dependencies": {
     "firebase": "^5.5.8",
+<<<<<<< HEAD
     "google-map-react": "^1.1.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-geocode": "^0.1.2",
     "react-geolocated": "^2.4.0",
+=======
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-firebase": "^2.2.8",
+>>>>>>> 00402677b5536c7d777896b064434b18c051f109
     "react-particles-js": "^2.3.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",

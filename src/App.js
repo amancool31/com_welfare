@@ -3,9 +3,15 @@ import './App.css';
 import Particles from 'react-particles-js';
 import { Button, Segment } from 'semantic-ui-react';
 import { Link ,Switch,BrowserRouter,Route} from 'react-router-dom';
+<<<<<<< HEAD
 import Book from './book';
 import Register from './register'
 import firebase from 'firebase'
+=======
+import Register from './register.js'
+import firebase from 'firebase'
+import Feedback from './Feedback.js'
+>>>>>>> 00402677b5536c7d777896b064434b18c051f109
 
 class App extends Component {
   componentDidMount()
@@ -19,7 +25,10 @@ class App extends Component {
       messagingSenderId: "1038046730534"
     };
     const app=firebase.initializeApp(config);
+<<<<<<< HEAD
   
+=======
+>>>>>>> 00402677b5536c7d777896b064434b18c051f109
   }
   render() {
     return (
@@ -68,8 +77,13 @@ class App extends Component {
               <Switch>
               <Route path='/register' component={Register}/>
               <Route path='/contact'/>
+<<<<<<< HEAD
               <Route path='/feedback'/>
               <Route path='/map' component={Book}/>
+=======
+              <Route path='/feedback' component={Feedback}/>
+              <Route path='/map'/>
+>>>>>>> 00402677b5536c7d777896b064434b18c051f109
               </Switch>
              
               </div>
