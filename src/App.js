@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
-import { Button, Segment } from 'semantic-ui-react';
+import {Header, Button, Segment ,Grid} from 'semantic-ui-react';
 import { Link ,Switch,BrowserRouter,Route} from 'react-router-dom';
 import Book from './book';
 import Register from './register'
 import firebase from 'firebase'
+import HomePage from './homePage'
 
 class App extends Component {
   componentDidMount()
@@ -24,26 +25,40 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-            <div className="App">
-      <Segment inverted>
-      <Link to="/map"><Button inverted color='teal'>
-        Map
-      </Button></Link>
+            <div className="App" style={{paddingBottom:0}}>
+             
+      <Segment inverted style={{borderRadius: 0,paddingBottom: 0}}>
+      <Grid columns={4}>
+       
+      <Grid.Column verticalAlign='middle'>
+        <Link to='/' style={{color:'white',fontWeight: 900,fontSize: 30}}>EXCELSIOR</Link>
+      </Grid.Column> 
+      <Grid.Column>
+      <Link to="/map">
+      <Button inverted color='teal'>
+        Book
+      </Button>
+      </Link></Grid.Column>
+      <Grid.Column>
       <Link to="/register" >
       <Button inverted color='teal'>
         Register 
-      </Button></Link>
+      </Button>
+      </Link></Grid.Column>
+      {/* <Grid.Column>
       <Link to="/feedback" >
       <Button inverted color='teal'>
         FeedBack
       </Button>
-      </Link>
+      </Link></Grid.Column> */}
+      <Grid.Column>
       <Link to="/contact">
       <Button inverted color='teal'>
         Contact us
       </Button>
-      </Link>
-      </Segment>
+      </Link></Grid.Column>
+      </Grid> 
+      </Segment> 
         {/* <Particles params={{
             		particles: {
                   interactivity:{
@@ -66,6 +81,7 @@ class App extends Component {
               }}/> */}
                
               <Switch>
+                <Route exact  path='/' component={HomePage} />
               <Route path='/register' component={Register}/>
               <Route path='/contact'/>
               <Route path='/feedback'/>

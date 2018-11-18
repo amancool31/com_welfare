@@ -136,6 +136,7 @@ componentDidMount()
         const center = this.state.center;
         return (
             <div>
+                <br/>
                <div>
                    {
                        !this.props.isGeolocationAvailable

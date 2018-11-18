@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form,Dropdown,Input,Button ,Card} from 'semantic-ui-react'
+import { Form,Dropdown,Input,Button ,Card,Loader,Dimmer,Icon} from 'semantic-ui-react'
 import firebase  from 'firebase'
 import { Link ,Switch,BrowserRouter,Route} from 'react-router-dom';
 import {geolocated, geoPropTypes} from 'react-geolocated';
@@ -111,7 +111,7 @@ class Register extends Component {
   render() {
     
     return (
-      <div>
+      <div><br/>
         <center>
         <Card>
         <Form style={{padding: '10px'}}>
@@ -147,8 +147,13 @@ class Register extends Component {
      
         {
           !this.props.coords?
-          <Button disabled color='red'>Set my Location</Button>
-          :
+          <div>
+             
+          <Dimmer inverted active>
+            <Loader />
+          </Dimmer>
+          </div>
+          :this.state.setLocation==false?
           <Button onClick={()=>{
             this.setState({
               lat:this.props.coords.latitude,
@@ -156,10 +161,12 @@ class Register extends Component {
               setLocation:true
             })
           }} color='blue'>Set my Location</Button>
+          :
+          <Button color='green' ><center><Icon name='checkmark' /></center></Button>
         }
      
-     
-     <Form.TextArea label='About' placeholder='Tell us more about you....' onChange={(text)=>{ this.setState({about:text.target.value}) }}/>
+     <br/><br/>
+     <Form.TextArea  placeholder='Tell us more about you....' onChange={(text)=>{ this.setState({about:text.target.value}) }}/>
      <Form.Checkbox label='I agree to the Terms and Conditions' onClick={()=>{
        let tnc_new=!this.state.tnc
        this.setState({tnc:tnc_new})}}/>
