@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import {Card,Button,Dropdown,Modal} from 'semantic-ui-react'
+import {Card,Button,Dropdown,Modal,Popup} from 'semantic-ui-react'
 import Geocode from "react-geocode";
 import {geolocated, geoPropTypes} from 'react-geolocated';
 import firebase from 'firebase';
@@ -77,8 +77,6 @@ class Book extends Component {
 componentDidMount()
 {
     Book.propTypes = Object.assign({}, Book.propTypes, geoPropTypes);
-   
-    
 }
 
     constructor()
@@ -120,6 +118,10 @@ componentDidMount()
          this.setState({
              center:pos_new
          })
+         if(this.state.markerList.length==0)
+         {
+             alert('No person found!')
+         }
     }
     
 
@@ -150,7 +152,7 @@ componentDidMount()
                              
                            : <div>Getting the location data&hellip; </div>
                    }<br/>
-                   <Dropdown selection placeholder='Select Job' options={pro}  >
+                   <Dropdown selection placeholder={this.state.profession} options={pro}  >
                    <Dropdown.Menu>
                 {pro.map(item=>(
              <Dropdown.Item onClick={()=>{this.setState({profession:item.text})}}>

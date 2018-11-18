@@ -27,7 +27,7 @@ class Register extends Component {
   state = {
       first:'',
       last:'',
-      profession:'',
+      profession:'Select Profession',
       number:'',
       gender:'',
       lat:0.0,
@@ -99,10 +99,10 @@ class Register extends Component {
   {
     return this.state.first!=''
      && this.state.last!='' 
-     && this.state.gender!='' 
+     && this.state.gender!='Gender' 
      && this.state.about!='' 
      && this.state.number!='' 
-     && this.state.profession!=''
+     && this.state.profession!='Select Profession'
      && this.state.lat!=''
      && this.state.lng!='' 
      && this.state.tnc==true  
@@ -119,7 +119,7 @@ class Register extends Component {
        <Input fluid label='First name' onChange={(text)=>{ this.setState({first:text.target.value}) }} /><br/><br/>
        <Input fluid label='Last name'  onChange={(text)=>{ this.setState({last:text.target.value}) }}/><br/><br/>
  {/* <Form.Select fluid label='Profession' options={pro}  onChange={(text)=>{ this.setState({profession:text.target.value}) }}/>*/}
-       <Dropdown fluid selection placeholder={this.state.profession} placeholder='Select Profession' options={pro}>
+       <Dropdown fluid selection placeholder={this.state.profession} placeholder={this.state.profession} options={pro}>
        <Dropdown.Menu>
          {pro.map(item=>(
              <Dropdown.Item onClick={()=>{this.setState({profession:item.text})}}>
@@ -130,7 +130,7 @@ class Register extends Component {
         </Dropdown><br/><br/>
        <Input label='Phone no.' fluid onChange={(text)=>{ this.setState({number:text.target.value}) }}/><br/><br/>
        
-       <Dropdown fluid button placeholder={this.state.gender} placeholder='Gender'>
+       <Dropdown fluid selection placeholder={this.state.gender} placeholder={this.state.gender} options={options}>
      <Dropdown.Menu>
          {options.map(item=>(
              <Dropdown.Item onClick={()=>{this.setState({gender:item.text})}}>

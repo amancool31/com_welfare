@@ -7,6 +7,8 @@ import Book from './book';
 import Register from './register'
 import firebase from 'firebase'
 import HomePage from './homePage'
+import Contact from './contact'
+import News from './news'
 
 class App extends Component {
   componentDidMount()
@@ -28,7 +30,7 @@ class App extends Component {
             <div className="App" style={{paddingBottom:0}}>
              
       <Segment inverted style={{borderRadius: 0,paddingBottom: 0}}>
-      <Grid columns={4}>
+      <Grid columns={5}>
        
       <Grid.Column verticalAlign='middle'>
         <Link to='/' style={{color:'white',fontWeight: 900,fontSize: 30}}>EXCELSIOR</Link>
@@ -45,12 +47,12 @@ class App extends Component {
         Register 
       </Button>
       </Link></Grid.Column>
-      {/* <Grid.Column>
-      <Link to="/feedback" >
+      <Grid.Column>
+      <Link to="/news" >
       <Button inverted color='teal'>
-        FeedBack
+        News
       </Button>
-      </Link></Grid.Column> */}
+      </Link></Grid.Column>
       <Grid.Column>
       <Link to="/contact">
       <Button inverted color='teal'>
@@ -83,8 +85,8 @@ class App extends Component {
               <Switch>
                 <Route exact  path='/' component={HomePage} />
               <Route path='/register' component={Register}/>
-              <Route path='/contact'/>
-              <Route path='/feedback'/>
+              <Route path='/contact'component={Contact}/>
+              <Route path='/news' component={News}/>
               <Route path='/map' component={Book}/>
               </Switch>
              
